@@ -8,3 +8,9 @@ from datetime import date
 
 def days_diff(a: tuple[int, int, int], b: tuple[int, int, int]) -> int:
     return abs(date(b[0], b[1], b[2]) - date(a[0], a[1], a[2])).days
+
+
+""" the Best and fastest """
+
+
+
