@@ -5,6 +5,7 @@ from DaysBetween import days_diff
 from BackwardWords import backward_words
 from BiggerPrice import bigger_price
 from PopularWords import popular_words
+from SecondIndex import second_index
 
 
 def test_right_to_left():
@@ -146,3 +147,19 @@ def test_popular_words():
     assert popular_words(
         'I will go to the cinema\nNo you will not', ['i', 'will', 'no']
     ) == {'i': 1, 'will': 2, 'no': 1}
+
+
+def test_second_index():
+    assert second_index("sims", "s") == 3
+    assert second_index("find the river", "e") == 12
+    assert second_index("hi", " ") is None
+    assert second_index("hi mayor", " ") is None
+    assert second_index("denis what do you did", "d") == 11
+    assert second_index("some text", "") == 1  # ?
+    assert second_index('hi', ' ') is None
+    assert second_index('hi mayor', ' ') is None
+    assert second_index('hi mr Mayor', ' ') == 5
+    assert second_index('hi', 'i') is None
+    assert second_index('abc', 'd') is None
+    assert second_index('see you', 'e') == 2
+    assert second_index('three occurrences', 'r') == 10
