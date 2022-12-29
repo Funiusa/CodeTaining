@@ -4,6 +4,7 @@ from RightToLeft import left_join
 from DaysBetween import days_diff
 from BackwardWords import backward_words
 from BiggerPrice import bigger_price
+from PopularWords import popular_words
 
 
 def test_right_to_left():
@@ -103,7 +104,7 @@ def test_bigger_price():
             {"name": "meat", "price": 100},
             {"name": "water", "price": 1},
         ],
-    ) == [{'name': 'wine', 'price': 138}, {'name': 'meat', 'price': 100}, {"name": "bread", "price": 10},]
+    ) == [{'name': 'wine', 'price': 138}, {'name': 'meat', 'price': 100}, {"name": "bread", "price": 10}, ]
 
     assert bigger_price(
         2,
@@ -114,3 +115,34 @@ def test_bigger_price():
             {"name": "water", "price": 1},
         ],
     ) == [{'name': 'bread', 'price': 1200}, {'name': 'meat', 'price': 300}]
+
+
+def test_popular_words():
+    assert popular_words(
+        '\nWhen I was One\nI had just begun\nWhen I was Two\nI was nearly new\n',
+        ['i', 'was', 'three', 'near']
+    ) == {'i': 4, 'was': 3, 'three': 0, 'near': 0}
+
+    assert popular_words(
+        '\nWhen I was One\nI had just begun\nWhen I was Two\nI was nearly new\n',
+        ['one', 'two', 'three']
+    ) == {'one': 1, 'two': 1, 'three': 0}
+
+    assert popular_words(
+        "It's flying from somewhere\nAs fast as it can\nI couldn't keep up with it\nNot if I ran",
+        ["it's", 'ran', 'i']
+    ) == {"it's": 1, 'ran': 1, 'i': 2}
+
+    assert popular_words(
+        'And the Raven never flitting still is sitting still is sitting\n'
+        'On the pallid bust of Pallas just above my chamber door\n'
+        'And his eyes have all the seeming of a demon’s that is dreaming\n'
+        'And the lamp-light o’er him streaming throws his shadow on the floor\n'
+        'And my soul from out that shadow that lies floating on the floor\n'
+        'Shall be lifted nevermore',
+        ['raven', 'still', 'is', 'floor', 'nevermore']
+    ) == {'raven': 1, 'still': 2, 'is': 3, 'floor': 2, 'nevermore': 1}
+
+    assert popular_words(
+        'I will go to the cinema\nNo you will not', ['i', 'will', 'no']
+    ) == {'i': 1, 'will': 2, 'no': 1}
