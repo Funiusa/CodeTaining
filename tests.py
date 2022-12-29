@@ -3,6 +3,7 @@ from FirstWord import first_word
 from RightToLeft import left_join
 from DaysBetween import days_diff
 from BackwardWords import backward_words
+from BiggerPrice import bigger_price
 
 
 def test_right_to_left():
@@ -73,15 +74,43 @@ def test_backward_words():
     assert (backward_words("nehW[ era uoy     og ot ]?peels")) == "[When are you     go to sleep?]"
     assert (backward_words("welcome[ to the ]game")) == "[emoclew ot eht emag]"
     assert (backward_words("sineD___olleH")) == "Hello___Denis"
-    assert (backward_words("   ecaps  erom    secaps  ")) == "   space  more    spaces "
+    assert (backward_words(f"[{'   ecaps  erom    secaps '}]")) == "[   space  more    spaces ]"
     assert (backward_words("  woh tuoba le odle   odarodle ?")) == "  how about el eldo   eldorado ?"
     assert (backward_words("Hello olleH")) == "olleH Hello"
     assert backward_words('ha ha ha this is cool') == "ah ah ah siht si looc"
 
 
+def test_bigger_price():
+    assert bigger_price(
+        2,
+        [
+            {"name": "bread", "price": 100},
+            {"name": "wine", "price": 138},
+            {"name": "meat", "price": 15},
+            {"name": "water", "price": 1},
+        ],
+    ) == [{"name": "wine", "price": 138}, {"name": "bread", "price": 100}]
 
+    assert bigger_price(
+        1, [{"name": "pen", "price": 5}, {"name": "whiteboard", "price": 170}]
+    ) == [{"name": "whiteboard", "price": 170}]
 
+    assert bigger_price(
+        3,
+        [
+            {"name": "bread", "price": 10},
+            {"name": "wine", "price": 138},
+            {"name": "meat", "price": 100},
+            {"name": "water", "price": 1},
+        ],
+    ) == [{'name': 'wine', 'price': 138}, {'name': 'meat', 'price': 100}, {"name": "bread", "price": 10},]
 
-
-
-
+    assert bigger_price(
+        2,
+        [
+            {"name": "bread", "price": 1200},
+            {"name": "wine", "price": 13},
+            {"name": "meat", "price": 300},
+            {"name": "water", "price": 1},
+        ],
+    ) == [{'name': 'bread', 'price': 1200}, {'name': 'meat', 'price': 300}]

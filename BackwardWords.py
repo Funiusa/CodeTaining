@@ -3,6 +3,7 @@
 
 
 def backward_words(source: str) -> str:
+    # return ' '.join([i[::-1] for i in source.split(' ')])
     text = ""
     idx1 = 0
     for word in source.split():
