@@ -18,16 +18,6 @@
     сколько раз они встречаются в исходном тексте.
 """
 
-def low(t):
-    return t.lower()
-
 
 def popular_words(text: str, words: list) -> dict:
     return {word: list(map(lambda w: w.lower(), text.split())).count(word) for word in words}
-
-
-if __name__ == "__main__":
-    print(popular_words(
-        "\nWhen I was One\nI had just begun\nWhen I was Two\nI was nearly new\n",
-        ["i", "was", "three", "near"],
-    ))
