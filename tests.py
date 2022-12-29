@@ -2,6 +2,7 @@
 from FirstWord import first_word
 from RightToLeft import left_join
 from DaysBetween import days_diff
+from BackwardWords import backward_words
 
 
 def test_right_to_left():
@@ -57,4 +58,30 @@ def test_days_days_diff():
     assert days_diff((4632, 11, 18), (8077, 10, 26)) == 1258238
     assert days_diff((696, 5, 7), (9241, 6, 27)) == 3121048
     assert days_diff((6051, 1, 23), (4129, 8, 9))
+
+
+def test_backward_words():
+    assert backward_words("") == ""
+    assert backward_words("world") == "dlrow"
+    assert backward_words("hello world") == "olleh dlrow"
+    assert backward_words("hello   world") == "olleh   dlrow"
+    assert backward_words("welcome to a game") == "emoclew ot a emag"
+    assert (backward_words(f"[{'  uhi  '}]")) == "[  ihu  ]"
+    assert (backward_words("Hello[ ]world")) == "[olleH dlrow]"
+    assert (backward_words("olleH[   ]dlrow")) == "[Hello   world]"
+    assert (backward_words("[  HooH eldoodle ]")) == "[  HooH eldoodle ]"
+    assert (backward_words("nehW[ era uoy     og ot ]?peels")) == "[When are you     go to sleep?]"
+    assert (backward_words("welcome[ to the ]game")) == "[emoclew ot eht emag]"
+    assert (backward_words("sineD___olleH")) == "Hello___Denis"
+    assert (backward_words("   ecaps  erom    secaps  ")) == "   space  more    spaces "
+    assert (backward_words("  woh tuoba le odle   odarodle ?")) == "  how about el eldo   eldorado ?"
+    assert (backward_words("Hello olleH")) == "olleH Hello"
+    assert backward_words('ha ha ha this is cool') == "ah ah ah siht si looc"
+
+
+
+
+
+
+
 
