@@ -6,6 +6,7 @@ from BackwardWords import backward_words
 from BiggerPrice import bigger_price
 from PopularWords import popular_words
 from SecondIndex import second_index
+from FrequancySort import frequency_sort
 
 
 def test_right_to_left():
@@ -163,3 +164,15 @@ def test_second_index():
     assert second_index('abc', 'd') is None
     assert second_index('see you', 'e') == 2
     assert second_index('three occurrences', 'r') == 10
+
+
+def test_frequency_sort():
+    assert list(frequency_sort([4, 6, 2, 2, 6, 4, 4, 4])) == [4, 4, 4, 4, 6, 6, 2, 2]
+    assert list(frequency_sort([4, 6, 2, 2, 2, 6, 4, 4, 4])) == [4, 4, 4, 4, 2, 2, 2, 6, 6]
+    assert list(frequency_sort(['bob', 'bob', 'carl', 'alex', 'bob'])) == ['bob', 'bob', 'bob', 'carl', 'alex']
+    assert list(frequency_sort([17, 99, 42])) == [17, 99, 42]
+    assert list(frequency_sort([])) == []
+    assert list(frequency_sort([1])) == [1]
+    assert list(frequency_sort([6, 3])) == [6, 3]
+    assert list(frequency_sort([1, 1, 1, 1])) == [1, 1, 1, 1]
+    assert list(frequency_sort([1, 2, 2, 1])) == [1, 1, 2, 2]
