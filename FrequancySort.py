@@ -1,5 +1,17 @@
 from typing import Iterable
 
+""" Sort the given list so that its elements end up in the decreasing frequency order,
+    that is, the number of times they appear in elements. 
+    If two elements have the same frequency, 
+    they should end up in the same order as the first appearance in the list.
+
+    If you want to practice more with the similar case, try Frequency Sorting mission.
+
+    Input: List
+
+    Output: List or another Iterable (tuple, iterator, generator) 
+"""
+
 
 def frequency_sort(source: list) -> Iterable[str | int]:
     tmp_dict = {}
