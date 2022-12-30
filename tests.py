@@ -7,6 +7,7 @@ from BiggerPrice import bigger_price
 from PopularWords import popular_words
 from SecondIndex import second_index
 from FrequancySort import frequency_sort
+from MissingNumber import missing_number
 
 
 def test_right_to_left():
@@ -176,3 +177,14 @@ def test_frequency_sort():
     assert list(frequency_sort([6, 3])) == [6, 3]
     assert list(frequency_sort([1, 1, 1, 1])) == [1, 1, 1, 1]
     assert list(frequency_sort([1, 2, 2, 1])) == [1, 1, 2, 2]
+
+
+def test_missing_number():
+    assert (missing_number([1, 4, 2, 5]) == 3)
+    assert (missing_number([2, 6, 8]) == 4)
+    assert (missing_number([10, 15, 20, 30]) == 25)
+    assert (missing_number([2, 5]) == 0)
+    assert (missing_number([1, 4, 3, 2, 5, 9, 6, 10, 8, 5]) == 7)
+    assert (missing_number([105, 5, 45, 25, 65]) == 85)
+    assert missing_number([5, 25, 30, 20, 15]) == 10
+    assert missing_number([0, 1, 3, 4, 2, 6, 9, 7, 8]) == 5
