@@ -10,6 +10,7 @@ from FrequancySort import frequency_sort
 from MissingNumber import missing_number
 from AbsoluteSorted import checkio
 from GoesRightAfter import goes_after
+from TimeConverter import time_converter
 
 
 def test_right_to_left():
@@ -300,3 +301,13 @@ def test_goes_after():
     assert goes_after('almaz', 'r', 'a') == False
     assert goes_after('world', 'a', 'r') == False
     assert goes_after('amazed', 'a', 'z') == False
+
+
+def test_time_converter():
+    assert time_converter('12:30') == '12:30 p.m.'
+    assert time_converter('09:00') == '9:00 a.m.'
+    assert time_converter('23:15') == '11:15 p.m.'
+    assert time_converter('18:50') == '6:50 p.m.'
+    assert time_converter('07:07') == '7:07 a.m.'
+    assert time_converter('00:00') == '12:00 a.m.'
+    assert time_converter('12:00') == '12:00 p.m.'
