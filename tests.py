@@ -9,6 +9,7 @@ from SecondIndex import second_index
 from FrequancySort import frequency_sort
 from MissingNumber import missing_number
 from AbsoluteSorted import checkio
+from GoesRightAfter import goes_after
 
 
 def test_right_to_left():
@@ -279,3 +280,23 @@ def test_checkio():
     assert checkio([46, -83, 43, 28, -96, -84, -4, -21, 50, -65, -47]) == [-4, -21, 28, 43, 46, -47, 50, -65, -83, -84,
                                                                            -96]
     assert checkio([56, -71, -46, 25, -45, 5, -72, 58, 48, 2]) == [2, 5, 25, -45, -46, 48, 56, 58, -71, -72]
+
+
+def test_goes_after():
+    assert goes_after('world', 'w', 'o') == True
+    assert goes_after('world', 'w', 'r') == False
+    assert goes_after('world', 'l', 'o') == False
+    assert goes_after('panorama', 'a', 'n') == True
+    assert goes_after('list', 'l', 'o') == False
+    assert goes_after('', 'l', 'o') == False
+    assert goes_after('list', 'l', 'l') == False
+    assert goes_after('world', 'd', 'w') == False
+    assert goes_after('Almaz', 'a', 'l') == False
+    assert goes_after('transport', 'r', 't') == False
+    assert goes_after('almaz', 'a', 'l') == True
+    assert goes_after('almaz', 'm', 'a') == False
+    assert goes_after('almaz', 'r', 'l') == False
+    assert goes_after('almaz', 'p', 'p') == False
+    assert goes_after('almaz', 'r', 'a') == False
+    assert goes_after('world', 'a', 'r') == False
+    assert goes_after('amazed', 'a', 'z') == False
