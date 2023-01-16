@@ -11,6 +11,7 @@ from MissingNumber import missing_number
 from AbsoluteSorted import checkio
 from GoesRightAfter import goes_after
 from TimeConverter import time_converter
+from SumByType import sum_by_types
 
 
 def test_right_to_left():
@@ -311,3 +312,14 @@ def test_time_converter():
     assert time_converter('07:07') == '7:07 a.m.'
     assert time_converter('00:00') == '12:00 a.m.'
     assert time_converter('12:00') == '12:00 p.m.'
+
+
+def test_sum_by_type():
+    assert list(sum_by_types([])) == ['', 0]
+    assert list(sum_by_types([1, 2, 3])) == ['', 6]
+    assert list(sum_by_types(['1', 2, 3])) == ['1', 5]
+    assert list(sum_by_types(['1', '2', 3])) == ['12', 3]
+    assert list(sum_by_types(['1', '2', '3'])) == ['123', 0]
+    assert list(sum_by_types(['size', 12, 'in', 45, 0])) == ['sizein', 57]
+    assert list(sum_by_types(['hello', ' ', 'world'])) == ['hello world', 0]
+    assert list(sum_by_types([1, 2, 3, 4, 5, 'and', 6])) == ['and', 21]
