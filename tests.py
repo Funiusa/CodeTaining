@@ -12,6 +12,7 @@ from AbsoluteSorted import checkio
 from GoesRightAfter import goes_after
 from TimeConverter import time_converter
 from SumByType import sum_by_types
+from BirdLanguage import translate
 
 
 def test_right_to_left():
@@ -323,3 +324,21 @@ def test_sum_by_type():
     assert list(sum_by_types(['size', 12, 'in', 45, 0])) == ['sizein', 57]
     assert list(sum_by_types(['hello', ' ', 'world'])) == ['hello world', 0]
     assert list(sum_by_types([1, 2, 3, 4, 5, 'and', 6])) == ['and', 21]
+
+
+def test_translate():
+    assert translate('hieeelalaooo') == 'hello'
+    assert translate('hoooowe yyyooouuu duoooiiine') == 'how you doin'
+    assert translate('aaa bo cy da eee fe') == 'a b c d e f'
+    assert translate('sooooso aaaaaaaaa') == 'sos aaa'
+    assert translate('aaa') == 'a'
+    assert translate('zy') == 'z'
+    assert translate(
+        'aaabucidyeeefigihoiiijukulemonoooopyqorysotauuuviwuxayyyzu ziyyyxuwivouuutesiriqopaooonimelykijaiiihigefaeeedacybuaaa') == 'abcdefghijklmnopqrstuvwxyz zyxwvutsrqponmlkjihgfedcba'
+    assert translate('aaaeeeiiiooouuuyyy') == 'aeiouy'
+    assert translate('bicydafagahajokulymonepyqarisytyvewexuzo') == 'bcdfghjklmnpqrstvwxz'
+    assert translate('laooorueeema iiipesiuuumo') == 'lorem ipsum'
+    assert translate('tyooo bieee ooora nyooote tiooo byeee') == 'to be or not to be'
+    assert translate('baliaaa bolaaaa boloaaa baloaaa') == 'bla bla bla bla'
+    assert translate('doooo yyyooouuu sapieeeaaaky eeenugaleiiisyhy') == 'do you speak english'
+    assert translate('iii dyooony neoooto uuunadueeerisotoaaanydy yyyooouuu') == 'i don not understand you'
