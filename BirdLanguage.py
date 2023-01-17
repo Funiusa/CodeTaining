@@ -38,12 +38,3 @@ def translate(bp: str) -> str:
     for m in p2:
         new = new.replace(m, m[-1])
     return new
-
-
-if __name__ == "__main__":
-    print(bird_language("hieeelalaooo"))
-    print(bird_language("hoooowe yyyooouuu duoooiiine"))
-    print(bird_language("aaa bo cy da eee fe"))
-    print(bird_language("sooooso aaaaaaaaa"))
-    print(bird_language("aaabucidyeeefigihoiiijukulemonoooopyqorysotauuuviwuxayyyzu ziyyyxuwivouuutesiriqopaooonimelykijaiiihigefaeeedacybuaaa"))
-
