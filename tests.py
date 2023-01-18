@@ -13,6 +13,7 @@ from GoesRightAfter import goes_after
 from TimeConverter import time_converter
 from SumByType import sum_by_types
 from BirdLanguage import translate
+from CommonWords import common_words
 
 
 def test_right_to_left():
@@ -342,3 +343,23 @@ def test_translate():
     assert translate('baliaaa bolaaaa boloaaa baloaaa') == 'bla bla bla bla'
     assert translate('doooo yyyooouuu sapieeeaaaky eeenugaleiiisyhy') == 'do you speak english'
     assert translate('iii dyooony neoooto uuunadueeerisotoaaanydy yyyooouuu') == 'i don not understand you'
+
+
+def test_common_words():
+    assert common_words('hello,world', 'hello,earth') == 'hello'
+    assert common_words('one,two,three', 'four,five,six') == ''
+    assert common_words('one,two,three', 'four,five,one,two,six,three') == 'one,three,two'
+    assert common_words('soccer,final,guitar,club,hammer',
+                        'foraging,mediocre,frog,send,cleaning,guardian,thudding,soccer,water') == 'soccer'
+    assert common_words('final,fun,xylophone,teacher,zebra,sausage,pencil,chair',
+                        'banana,mediocre,softly,final,teacher,violently,moon') == 'final,teacher'
+    assert common_words('uncle,musical,website,pencil,zebra,ink,hammer,teacher',
+                        'hammer,literature,penguin,two,musical,computer,school,fun,network,pencil') == 'hammer,musical,pencil'
+    assert common_words('mega,cloud,two,website,final',
+                        'window,penguin,literature,network,fun,cloud,final,sausage') == 'cloud,final'
+    assert common_words('final,pencil,school,dog,two,banana,moon,zebra,literature,ink',
+                        'banana,sausage,window,uncle,ink,mediocre,cords,moon,network,fun') == 'banana,ink,moon'
+    assert common_words('penguin,home,zebra,computer', 'penguin,home,zebra,computer') == 'computer,home,penguin,zebra'
+    assert common_words('blubber,hammer', 'hammer') == 'hammer'
+    assert common_words('website,violently,cords,walking,xylophone,final',
+                        'blubber,sausage,computer,softly,penguin,moon') == ''
