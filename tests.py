@@ -14,6 +14,7 @@ from TimeConverter import time_converter
 from SumByType import sum_by_types
 from BirdLanguage import translate
 from CommonWords import common_words
+from followInstructions import follow
 
 
 def test_right_to_left():
@@ -363,3 +364,12 @@ def test_common_words():
     assert common_words('blubber,hammer', 'hammer') == 'hammer'
     assert common_words('website,violently,cords,walking,xylophone,final',
                         'blubber,sausage,computer,softly,penguin,moon') == ''
+
+
+def test_follow():
+    assert list(follow('fflff')) == [-1, 4]
+    assert list(follow('ffrff')) == [1, 4]
+    assert list(follow('fblr')) == [0, 0]
+    assert list(follow('ffff')) == [0, 4]
+    assert list(follow('ffbbffbb')) == [0, 0]
+    assert list(follow('frfr')) == [2, 2]
