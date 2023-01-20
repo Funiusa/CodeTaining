@@ -15,6 +15,7 @@ from SumByType import sum_by_types
 from BirdLanguage import translate
 from CommonWords import common_words
 from followInstructions import follow
+from Pangram import check_pangram
 
 
 def test_right_to_left():
@@ -373,3 +374,24 @@ def test_follow():
     assert list(follow('ffff')) == [0, 4]
     assert list(follow('ffbbffbb')) == [0, 0]
     assert list(follow('frfr')) == [2, 2]
+
+
+def test_check_pangram():
+    assert check_pangram('The quick brown fox jumps over the lazy dog.') == True
+    assert check_pangram('ABCDEF') == False
+    assert check_pangram('abcdefghijklmnopqrstuvwxyz') == True
+    assert check_pangram('ABCDEFGHIJKLMNOPQRSTUVWXYZ') == True
+    assert check_pangram('abcdefghijklmnopqrstuvwxy') == False
+    assert check_pangram('Bored? Craving a pub quiz fix? Why, just come to the Royal Oak!') == True
+    assert check_pangram("As quirky joke, chefs won't pay devil magic zebra tax.") == True
+    assert check_pangram(
+        "bnC_XuknwTlVL..wvNU/*s%)*BjXi?X<&ZieBhy&IRvxbHtr<%c%mUEcXD$WB$m<']Wfbzecee-!miZotA=&)#TPGfjDB$nw_LIZ!#JecokQ(LQK*JXKqyDSrHJSG?YTLOPfwW}Wiq=-mAi%%N]Tc(v^[TvN:XW&=@rK~CbC}|DySivVj") == True
+    assert check_pangram(
+        'OGvkMBRgvDtaHBILRgTNuroYZcUkJqnAtstCXZytcQJzbpjhLoOKjQHrsZKViqBAPrnqKWKNBtbCEmhSWJoCjqmachvVGEGlpAJh') == False
+    assert check_pangram('a') == False
+    assert check_pangram(
+        'IlrCOiJHgmROZaMAXvvBRESnEkAgJKJPPXIUtjaVOxrnYJQQjjjQSiUeJNUXdHUqwvHRkzTjYhIhLkubPzMOPKYPIaRLCcSgFHga') == True
+    assert check_pangram(
+        'The quick, brown fox jumps over a lazy dog. DJs flock by when MTV ax quiz prog. Junk MTV quiz graced by fox whelps.') == True
+    assert check_pangram(
+        'Brick quiz whangs jumpy veldt foks. Bright viksens jump; dozy fowl quack. Quick wafting zephyrs veks bold Jim. Quick zephyrs blow, veksing daft Jim. Seks-charged fop blew my junk TV quiz. How quickly daft jumping zebras veks. Two driven jocks help faks my big quiz. Quick, Baz, get my woven flaks jodhpurs! Now faks quiz Jack! my brave ghost pled. Five quacking zephyrs jolt my waks bed. Flummoksed by job, kvetching W.') == False
