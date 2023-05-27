@@ -39,5 +39,5 @@ def translate(bp: str) -> str:
         new = new.replace(m, m[-1])
     return new
 
-#     return ''.join([elem[0] for elem in re.findall(r"(\w)(\1\1|.)", bp)])
 
+#     return ''.join([elem[0] for elem in re.findall(r"(\w)(\1\1|.)", bp)])

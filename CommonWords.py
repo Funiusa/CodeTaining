@@ -13,4 +13,4 @@
 
 
 def common_words(line1: str, line2: str) -> str:
-    return ','.join(sorted(set(line1.split(',')) & set(line2.split(','))))
+    return ",".join(sorted(set(line1.split(",")) & set(line2.split(","))))

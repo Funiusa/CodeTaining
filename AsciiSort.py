@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 def ascii_sort(uns_list: list) -> list:
-    """ Bubbles sorted """
+    """Bubbles sorted"""
     size, i, j = len(uns_list), 0, 0
     while i + 1 < size:
         j = 0
@@ -15,7 +15,7 @@ def ascii_sort(uns_list: list) -> list:
 
 
 def ascii_shake(ushake_l: list) -> list:
-    """ Shake sort """
+    """Shake sort"""
     left, right = 0, len(ushake_l) - 1
     while left <= right:
         i = right

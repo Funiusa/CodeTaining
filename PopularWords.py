@@ -20,4 +20,6 @@
 
 
 def popular_words(text: str, words: list) -> dict:
-    return {word: list(map(lambda w: w.lower(), text.split())).count(word) for word in words}
+    return {
+        word: list(map(lambda w: w.lower(), text.split())).count(word) for word in words
+    }

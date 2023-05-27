@@ -11,6 +11,3 @@ def days_diff(a: tuple[int, int, int], b: tuple[int, int, int]) -> int:
 
 
 """ the Best and fastest """
-
-
-

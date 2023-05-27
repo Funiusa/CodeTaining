@@ -15,7 +15,7 @@
     Output: Whether the sentence is a pangram or not as a boolean.
 """
 
-alphabet = list('abcdefghijklmnopqrstuvwxyz')
+alphabet = list("abcdefghijklmnopqrstuvwxyz")
 
 
 def check_pangram(text: str) -> bool:

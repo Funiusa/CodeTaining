@@ -35,12 +35,12 @@ def follow(instructions: str) -> list[int] | tuple[int, int]:
     x = y = 0
     for step in list(instructions):
         match step:
-            case 'f':
+            case "f":
                 y += 1
-            case 'b':
+            case "b":
                 y -= 1
-            case 'r':
+            case "r":
                 x += 1
-            case 'l':
+            case "l":
                 x -= 1
     return [x, y]

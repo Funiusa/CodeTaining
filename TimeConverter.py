@@ -13,9 +13,8 @@
 
 
 def time_converter(time: str) -> str:
-    t = time.split(':')
+    t = time.split(":")
     hour, minute = int(t[0]), t[1]
     if hour >= 12:
         return f"{hour - 12 if hour != 12 else '12'}:{minute} p.m."
     return f"{hour if hour > 0 else '12'}:{minute} a.m."
-

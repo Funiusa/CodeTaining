@@ -8,6 +8,4 @@
 
 
 def left_join(src: tuple) -> str:
-    return ','.join([s.replace('right', 'left') for s in src])
-
-
+    return ",".join([s.replace("right", "left") for s in src])

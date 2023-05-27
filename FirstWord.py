@@ -9,5 +9,5 @@
 
 
 def first_word(source: str) -> str:
-    ret = source.replace(',', ' ').replace('.', ' ').split()
-    return ret[0] if len(ret) else ''
+    ret = source.replace(",", " ").replace(".", " ").split()
+    return ret[0] if len(ret) else ""
