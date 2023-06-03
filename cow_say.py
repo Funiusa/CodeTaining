@@ -39,18 +39,18 @@ def cowsay(text):
         for chunk in chunked_text:
             if chunked_text.index(chunk) == 0:
                 result += (
-                        "{0} {1}{2}{3}".format("/", chunk, " " * (39 - len(chunk)), "\\")
-                        + "\n"
+                    "{0} {1}{2}{3}".format("/", chunk, " " * (39 - len(chunk)), "\\")
+                    + "\n"
                 )
             elif chunked_text.index(chunk) == len(chunked_text) - 1:
                 result += (
-                        "{0} {1}{2}{3}".format("\\", chunk, " " * (39 - len(chunk)), "/")
-                        + "\n"
+                    "{0} {1}{2}{3}".format("\\", chunk, " " * (39 - len(chunk)), "/")
+                    + "\n"
                 )
             else:
                 result += (
-                        "{0} {1}{2}{3}".format("|", chunk, " " * (39 - len(chunk)), "|")
-                        + "\n"
+                    "{0} {1}{2}{3}".format("|", chunk, " " * (39 - len(chunk)), "|")
+                    + "\n"
                 )
         result += r" {0} ".format("-" * cow_width)
     return result + COW
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     #         "your bunny wrote asdfas asdf asdf asdfasdfds it's a very long text more than forty symbols"
     #     )
     # )
-    expected_cowsay_one_line = r'''
+    expected_cowsay_one_line = r"""
  ________________
 < Checkio rulezz >
  ----------------
@@ -72,8 +72,8 @@ if __name__ == "__main__":
             (__)\       )\/\
                 ||----w |
                 ||     ||
-'''
-    expected_cowsay_two_lines = r'''
+"""
+    expected_cowsay_two_lines = r"""
      ________________________________________
     / A                                      \
     \ longtextwithonlyonespacetofittwolines. /
@@ -83,8 +83,8 @@ if __name__ == "__main__":
                 (__)\       )\/\
                     ||----w |
                     ||     ||
-    '''
-    expected_cowsay_many_lines = r'''
+    """
+    expected_cowsay_many_lines = r"""
      _________________________________________
     / Lorem ipsum dolor sit amet, consectetur \
     | adipisicing elit, sed do eiusmod tempor |
@@ -96,15 +96,22 @@ if __name__ == "__main__":
                 (__)\       )\/\
                     ||----w |
                     ||     ||
-    '''
-    cowsay_one_line = cowsay('Checkio rulezz')
+    """
+    cowsay_one_line = cowsay("Checkio rulezz")
     print("expected", expected_cowsay_one_line, "end")
-    assert cowsay_one_line == expected_cowsay_one_line, 'Wrong answer:\n%s' % cowsay_one_line
+    assert cowsay_one_line == expected_cowsay_one_line, (
+        "Wrong answer:\n%s" % cowsay_one_line
+    )
 
-    cowsay_two_lines = cowsay('A longtextwithonlyonespacetofittwolines.')
-    assert cowsay_two_lines == expected_cowsay_two_lines, 'Wrong answer:\n%s' % cowsay_two_lines
+    cowsay_two_lines = cowsay("A longtextwithonlyonespacetofittwolines.")
+    assert cowsay_two_lines == expected_cowsay_two_lines, (
+        "Wrong answer:\n%s" % cowsay_two_lines
+    )
 
     cowsay_many_lines = cowsay(
-        'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do '
-        'eiusmod tempor incididunt ut labore et dolore magna aliqua.')
-    assert cowsay_many_lines == expected_cowsay_many_lines, 'Wrong answer:\n%s' % cowsay_many_lines
+        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do "
+        "eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    )
+    assert cowsay_many_lines == expected_cowsay_many_lines, (
+        "Wrong answer:\n%s" % cowsay_many_lines
+    )
