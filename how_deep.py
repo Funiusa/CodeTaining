@@ -2,7 +2,7 @@ def how_deep(structure: tuple) -> int:
     deep = 1
     for elem in structure:
         count = 1
-        count += how_deep(elem) if type(elem) is tuple else 0
+        count += how_deep(elem) if isinstance(elem, tuple) else 0
         deep = count if count > deep else deep
     return deep
 
