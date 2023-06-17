@@ -5,7 +5,10 @@ class Warrior:
     def __init__(self):
         self.health = 50
         self.attack = 5
-        self.is_alive = True
+
+    @property
+    def is_alive(self):
+        return self.health > 0
 
 
 class Knight(Warrior):
@@ -44,15 +47,7 @@ class Battle:
 def fight(warrior_1: Union[Warrior, Knight], warrior_2: Union[Warrior, Knight]) -> bool:
     while warrior_1.is_alive and warrior_2.is_alive:
         warrior_2.health -= warrior_1.attack
-        if warrior_2.health <= 0:
-            warrior_2.is_alive = False
-            break
-
-        warrior_1.health -= warrior_2.attack
-        if warrior_1.health <= 0:
-            warrior_1.is_alive = False
-            break
-
+        warrior_1.health -= warrior_2.attack if warrior_1.is_alive else 0
     return warrior_1.is_alive
 
 
